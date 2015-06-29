@@ -21,7 +21,7 @@ class SentMemeTableViewController: UIViewController, UITableViewDataSource, UITa
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         tableMeme = appDelegate.memes
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
         memTableView.reloadData()
         
     }
@@ -41,9 +41,9 @@ class SentMemeTableViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        detailController.meme = self.tableMeme[indexPath.row]
-        self.navigationController!.pushViewController(detailController, animated: true)
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
+        detailController.meme = tableMeme[indexPath.row]
+        navigationController!.pushViewController(detailController, animated: true)
         
     }
 }

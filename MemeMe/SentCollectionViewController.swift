@@ -24,17 +24,17 @@ class SentCollectionViewController: UIViewController, UICollectionViewDataSource
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         tableMeme = appDelegate.memes
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
         memCollView.reloadData()
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.tableMeme.count
+        return tableMeme.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionCell", forIndexPath: indexPath) as! MemeCollectionCell
-        let memeCell = self.tableMeme[indexPath.row]        
+        let memeCell = tableMeme[indexPath.row]
         cell.memeCImage?.image = memeCell.memedImage
         
         // In case I need to add more detail to the collection vew tab.
@@ -46,9 +46,9 @@ class SentCollectionViewController: UIViewController, UICollectionViewDataSource
     
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        detailController.meme = self.tableMeme[indexPath.row]
-        self.navigationController!.pushViewController(detailController, animated: true)
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
+        detailController.meme = tableMeme[indexPath.row]
+        navigationController!.pushViewController(detailController, animated: true)
     }
 
 }

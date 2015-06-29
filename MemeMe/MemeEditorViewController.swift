@@ -37,34 +37,34 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.hidden = true
-        self.topTextField.defaultTextAttributes = memeTextAttributes
-        self.topTextField.textAlignment = NSTextAlignment.Center
-        self.topTextField.text = "TOP"
-        self.topTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
-        self.topTextField.delegate = textFieldDelegate
+        tabBarController?.tabBar.hidden = true
+        topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = NSTextAlignment.Center
+        topTextField.text = "TOP"
+        topTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+        topTextField.delegate = textFieldDelegate
         
-        self.bottomTextField.defaultTextAttributes = memeTextAttributes
-        self.bottomTextField.textAlignment = NSTextAlignment.Center
-        self.bottomTextField.text = "BOTTOM"
-        self.bottomTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
-        self.bottomTextField.delegate = textFieldDelegate
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.textAlignment = NSTextAlignment.Center
+        bottomTextField.text = "BOTTOM"
+        bottomTextField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+        bottomTextField.delegate = textFieldDelegate
         
-        self.memeShareButton.enabled = false
+        memeShareButton.enabled = false
         
     }
 
     override func viewWillAppear(animated: Bool) {
-        self.cameraPicker.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        cameraPicker.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         // Subscribe to keyboard notifications to allow the view to raise when necessary
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
     }
     
     // Unsubscribe to keyboard notications
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
         
     }
     
@@ -93,14 +93,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        if self.bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if self.bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
     
@@ -115,15 +115,15 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
-            self.memeShareButton.enabled = true
-            self.dismissViewControllerAnimated(true, completion: nil)
+            memeShareButton.enabled = true
+            dismissViewControllerAnimated(true, completion: nil)
         }
     }
     func save() {
@@ -139,16 +139,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func generateMemedImage() -> UIImage {
         
         
-        self.navigationController?.navigationBarHidden = true
+        navigationController?.navigationBarHidden = true
         memeToolBar.hidden = true
         
         // render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        self.navigationController?.navigationBarHidden = false
+        navigationController?.navigationBarHidden = false
         memeToolBar.hidden = false
         
         return memedImage
@@ -157,7 +157,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func shareMeme(sender: AnyObject) {
         let image = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        self.presentViewController(controller, animated: true, completion: nil)
+        presentViewController(controller, animated: true, completion: nil)
         
         // completionWithItems Handler expects the following parameters:
         // activityType, completed, returnedItems, activityError
@@ -186,7 +186,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
         
         
     }
@@ -195,7 +195,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
 
     
