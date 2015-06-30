@@ -78,10 +78,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C6G-2s-3bG">
-                                <rect key="frame" x="0.0" y="38" width="600" height="481"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="481" id="arW-Vv-dQg"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="20" width="600" height="492"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vnJ-uY-lh8">
                                 <rect key="frame" x="16" y="474" width="563" height="17"/>
@@ -89,8 +86,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Emi-vM-ByN">
+                                <rect key="frame" x="16" y="78" width="568" height="17"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDl-SG-oaW">
-                                <rect key="frame" x="0.0" y="525" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="512" width="600" height="44"/>
                                 <items>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="fWh-cl-DNo"/>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="sJn-Ej-oaR"/>
@@ -108,12 +111,6 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Emi-vM-ByN">
-                                <rect key="frame" x="16" y="78" width="568" height="17"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -122,14 +119,15 @@
                             <constraint firstItem="C6G-2s-3bG" firstAttribute="leading" secondItem="fDl-SG-oaW" secondAttribute="leading" id="8pb-Er-zgO"/>
                             <constraint firstItem="Emi-vM-ByN" firstAttribute="trailing" secondItem="6qL-nz-mzm" secondAttribute="trailingMargin" id="B6q-0W-lir"/>
                             <constraint firstItem="C6G-2s-3bG" firstAttribute="centerX" secondItem="Emi-vM-ByN" secondAttribute="centerX" id="CO4-JS-OHT"/>
-                            <constraint firstItem="C6G-2s-3bG" firstAttribute="top" secondItem="Emi-vM-ByN" secondAttribute="bottom" constant="-57" id="Ea2-Uh-Kxf"/>
-                            <constraint firstItem="fDl-SG-oaW" firstAttribute="top" secondItem="vnJ-uY-lh8" secondAttribute="bottom" constant="34" id="Fnt-ga-ltu"/>
+                            <constraint firstItem="C6G-2s-3bG" firstAttribute="top" secondItem="Emi-vM-ByN" secondAttribute="bottom" constant="-75" id="Ea2-Uh-Kxf"/>
                             <constraint firstItem="Emi-vM-ByN" firstAttribute="top" secondItem="cGc-dw-SmT" secondAttribute="bottom" constant="14" id="MIm-HP-NY3"/>
                             <constraint firstItem="Emi-vM-ByN" firstAttribute="centerX" secondItem="fDl-SG-oaW" secondAttribute="centerX" id="dj6-iq-MhY"/>
+                            <constraint firstItem="fDl-SG-oaW" firstAttribute="top" secondItem="uub-kY-Vvf" secondAttribute="top" constant="-44" id="gzu-NM-GDT"/>
+                            <constraint firstItem="uub-kY-Vvf" firstAttribute="top" secondItem="vnJ-uY-lh8" secondAttribute="bottom" constant="65" id="hX3-k3-puS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vnJ-uY-lh8" secondAttribute="trailing" constant="5" id="hnp-xi-YoM"/>
+                            <constraint firstItem="uub-kY-Vvf" firstAttribute="top" secondItem="C6G-2s-3bG" secondAttribute="bottom" constant="44" id="jWv-ud-xtV"/>
                             <constraint firstItem="C6G-2s-3bG" firstAttribute="trailing" secondItem="Emi-vM-ByN" secondAttribute="trailing" constant="16" id="sSF-Un-tdN"/>
                             <constraint firstItem="Emi-vM-ByN" firstAttribute="leading" secondItem="vnJ-uY-lh8" secondAttribute="leading" id="w9T-B2-Vj3"/>
-                            <constraint firstItem="fDl-SG-oaW" firstAttribute="top" secondItem="C6G-2s-3bG" secondAttribute="bottom" constant="6" id="yrB-jy-5sx"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -242,24 +240,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Ja-o0-ejX">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qdC-3r-aEY" firstAttribute="top" secondItem="7Ja-o0-ejX" secondAttribute="bottom" id="AMk-Ds-lxO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Ja-o0-ejX" secondAttribute="trailing" constant="-16" id="3eB-ZU-iGS"/>
+                            <constraint firstItem="7Ja-o0-ejX" firstAttribute="leading" secondItem="thC-Lk-brl" secondAttribute="leadingMargin" constant="-16" id="67D-nb-6AT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Ja-o0-ejX" secondAttribute="trailing" constant="-16" id="Q6y-Lh-O4W"/>
                             <constraint firstItem="7Ja-o0-ejX" firstAttribute="leading" secondItem="thC-Lk-brl" secondAttribute="leadingMargin" constant="-16" id="gIv-Fd-5LR"/>
-                            <constraint firstItem="7Ja-o0-ejX" firstAttribute="top" secondItem="NfH-NM-MFW" secondAttribute="bottom" id="tJa-NB-mSr"/>
+                            <constraint firstItem="7Ja-o0-ejX" firstAttribute="bottom" secondItem="thC-Lk-brl" secondAttribute="bottomMargin" id="k41-fN-lZg"/>
+                            <constraint firstItem="7Ja-o0-ejX" firstAttribute="top" secondItem="NfH-NM-MFW" secondAttribute="bottom" constant="-20" id="yAY-3P-6bb"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="memeImage" destination="7Ja-o0-ejX" id="3OF-nH-yPb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXe-Cj-jP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4412" y="814"/>
+            <point key="canvasLocation" x="4854" y="972"/>
         </scene>
         <!--MemeTableNavigation-->
         <scene sceneID="14D-37-glY">

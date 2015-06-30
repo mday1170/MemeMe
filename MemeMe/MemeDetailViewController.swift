@@ -13,12 +13,13 @@ import UIKit
 class MemeDetailViewController: UIViewController {
     // Create a single meme object variable to display
     var meme: Meme!
-    
+
     @IBOutlet weak var memeImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.hidden = true
+
         
     }
     
