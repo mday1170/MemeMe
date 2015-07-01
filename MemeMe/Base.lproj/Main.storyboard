@@ -17,13 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qZc-5u-1TY">
-                                <rect key="frame" x="0.0" y="28" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qZc-5u-1TY">
+                                <rect key="frame" x="0.0" y="0.0" width="584" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemeTableCell" textLabel="LJd-wd-7as" detailTextLabel="rjB-g6-tvJ" style="IBUITableViewCellStyleSubtitle" id="t1S-Gg-LIB">
+                                    <tableViewCell contentMode="center" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemeTableCell" textLabel="LJd-wd-7as" detailTextLabel="Jzo-iA-2U5" style="IBUITableViewCellStyleSubtitle" id="t1S-Gg-LIB">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t1S-Gg-LIB" id="hGZ-B8-Lu0">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="t1S-Gg-LIB" id="hGZ-B8-Lu0">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LJd-wd-7as">
@@ -32,7 +32,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rjB-g6-tvJ">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jzo-iA-2U5">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -49,8 +49,19 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qZc-5u-1TY" firstAttribute="trailing" secondItem="kd1-S2-s6d" secondAttribute="trailingMargin" id="47s-U4-d9e"/>
+                            <constraint firstItem="qZc-5u-1TY" firstAttribute="leading" secondItem="kd1-S2-s6d" secondAttribute="leadingMargin" constant="-16" id="PLf-RR-oMY"/>
+                            <constraint firstItem="qZc-5u-1TY" firstAttribute="top" secondItem="kd1-S2-s6d" secondAttribute="top" id="WYj-l9-Mqo"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="qZc-5u-1TY" secondAttribute="bottom" id="rJ3-Bh-HRL"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sent Memes" id="q2b-bl-dE7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="ly2-Wh-4IT">
+                            <connections>
+                                <action selector="editSentMeme:" destination="5cF-kJ-7jp" id="ji3-fa-baT"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Eo-mp-eMv">
                             <connections>
                                 <segue destination="iit-R9-joY" kind="show" id="4uz-Sx-rHl"/>
@@ -59,6 +70,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="memTableView" destination="qZc-5u-1TY" id="48R-70-Zah"/>
+                        <outlet property="sentMemeEdit" destination="ly2-Wh-4IT" id="dxh-mj-FNX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYe-rW-vLB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -170,7 +182,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Bl-qM-GS0">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Bl-qM-GS0">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qyd-9L-Tfy">
@@ -211,6 +223,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Bl-qM-GS0" secondAttribute="trailing" constant="-16" id="GWv-iG-XsH"/>
+                            <constraint firstItem="1Bl-qM-GS0" firstAttribute="leading" secondItem="jHP-6C-5qf" secondAttribute="leadingMargin" constant="-16" id="Hbh-8H-4Dv"/>
+                            <constraint firstItem="1Bl-qM-GS0" firstAttribute="bottom" secondItem="jHP-6C-5qf" secondAttribute="bottomMargin" id="qLt-el-eR6"/>
+                            <constraint firstItem="1Bl-qM-GS0" firstAttribute="top" secondItem="jHP-6C-5qf" secondAttribute="topMargin" id="qor-hW-sAE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sent Memes" id="Adw-rR-qB9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3Kw-t4-YHr">
