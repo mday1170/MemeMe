@@ -12,7 +12,7 @@ import UIKit
 
 class SentCollectionViewController: UIViewController, UICollectionViewDataSource {
     
-    var tableMeme: [Meme]!
+    // var tableMeme: [Meme]!
     
     @IBOutlet weak var memCollView: UICollectionView!
     
@@ -21,9 +21,6 @@ class SentCollectionViewController: UIViewController, UICollectionViewDataSource
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        let object = UIApplication.sharedApplication().delegate
-        let appDelegate = object as! AppDelegate
-        tableMeme = appDelegate.memes
         tabBarController?.tabBar.hidden = false
         memCollView.reloadData()
     }
@@ -45,9 +42,11 @@ class SentCollectionViewController: UIViewController, UICollectionViewDataSource
     }
     
     
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
+        detailController.memeIndex = indexPath.row
         navigationController!.pushViewController(detailController, animated: true)
     }
 

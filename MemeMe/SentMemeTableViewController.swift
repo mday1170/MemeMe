@@ -19,9 +19,6 @@ class SentMemeTableViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-//        let object = UIApplication.sharedApplication().delegate
-//        let appDelegate = object as! AppDelegate
-//        tableMeme = appDelegate.memes
         tabBarController?.tabBar.hidden = false
         memTableView.setEditing(false, animated: true)
         memTableView.reloadData()
@@ -46,6 +43,7 @@ class SentMemeTableViewController: UIViewController, UITableViewDataSource, UITa
         
         let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
+        detailController.memeIndex = indexPath.row  
         navigationController!.pushViewController(detailController, animated: true)
        
         
