@@ -5,6 +5,7 @@
 //  Created by Michael Day on 6/20/15.
 //  Copyright (c) 2015 Michael Day. All rights reserved.
 //
+//  Added the capability to delete entries from the table view.
 
 import Foundation
 import UIKit

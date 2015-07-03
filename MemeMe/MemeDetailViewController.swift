@@ -37,7 +37,7 @@ class MemeDetailViewController: UIViewController {
         var memeAlert = UIAlertController()
         memeAlert.message = "Delete Meme?"
         
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default){
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default){
             action in (UIApplication.sharedApplication().delegate as! AppDelegate).memes.removeAtIndex(self.memeIndex)
             self.dismissViewControllerAnimated(true, completion: nil)
             self.navigationController?.popToRootViewControllerAnimated(true)
